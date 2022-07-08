@@ -1,7 +1,7 @@
 #ifndef _GAIA_H_
 #define _GAIA_H_
 
-#ifdef __cplusplusp
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -13,7 +13,7 @@ extern "C" {
     #define GAIA_API
 #endif
 
-//TODO: let user provide own allocator 
+//TODO: let user provide own allocator
 
 #include "types.h"
 
@@ -23,6 +23,7 @@ extern "C" {
 #include "util/stack.h"
 
 #include "io/io.h"
+#include "io/parse.h"
 
 #include "window/window.h"
 

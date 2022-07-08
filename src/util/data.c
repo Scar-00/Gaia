@@ -1,7 +1,5 @@
 #include "../internal.h"
 
-void *stack_global = NULL;
-
 //Array funktions
 GAIA_API void *gaia_array_int_create(u32 capacity, size_t elem_size) {
     GaiaArrayHeader *arr = malloc((capacity * elem_size) + sizeof(GaiaArrayHeader));

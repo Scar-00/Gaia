@@ -19,6 +19,7 @@ typedef struct GaiaArena {
     size_t allocated_memory;
     GaiaPtr *ptrs;
     size_t ptrs_capacity;
+    bool debug;
 }GaiaArena;
 
 void gaia_arena_destroy();
@@ -31,6 +32,7 @@ typedef struct GaiaEntry {
     String value;
 }GaiaEntry;
 
+//FIXME: refactor using gaia array/stack
 typedef struct GaiaSaveFile {
     GaiaFile file;
     GaiaEntry *entries;
@@ -43,4 +45,15 @@ void gaia_save_file_lex();
 inline GaiaEntry gaia_entry_init(String name, String value);
 inline void gaia_save_file_entry_add(GaiaEntry entry);
 GaiaEntry *gaia_save_file_entry_get(String name);
+
+typedef enum TOMLTypes{
+    TOML_VALUE,
+    TOML_STRING,
+    TOML_INT,
+    TOML_FLOAT,
+    TOML_BOOL,
+}TOMLTypes;
+
+
+
 #endif

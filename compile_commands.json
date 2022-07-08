@@ -1,0 +1,24 @@
+[
+    {
+        "arguments": [
+            "clang",
+            "-c",
+            "-std=c11",
+            "-O3",
+            "-g",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wstrict-aliasing",
+            "-Wno-newline-eof",
+            "-Wno-unused-parameter",
+            "-Wno-gnu-compound-literal-initializer",
+            "-Wno-gnu-zero-variadic-macro-arguments",
+            "-Wno-deprecated-declarations",
+            "-Wno-gnu-statement-expression",
+            "-Iinclude"
+        ],
+        "directory": "C:/Users/fiffi/OneDrive/Desktop/Coding/engine",
+        "file": "src/main.c"
+    }
+]

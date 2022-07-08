@@ -12,9 +12,9 @@ typedef struct GaiaArrayHeader {
 #define gaia_array_length(a) (gaia_array_header(a)->length)
 #define gaia_array_capacity(a) (gaia_array_header(a)->capacity)
 
-//FIXME: wrap freeing the array/stack in a function to avoid conflictis with memory manager 
-#define gaia_array(type) (type *)
-#define gaia_array_create(type, size) gaia_array_int_create(size, sizeof(type));
+//FIXME: wrap freeing the array/stack in a function to avoid conflictis with memory manager
+#define gaia_array(type) type *
+#define gaia_array_create(type, size) gaia_array_int_create(size, sizeof(type))
 #define gaia_array_destroy(arr) (free(gaia_array_header(arr)), arr = NULL);
 #define gaia_array_free gaia_array_destroy
 #define gaia_array_pushback(arr, value) ((arr) = gaia_array_maygrow(arr, sizeof(*arr)), (arr)[gaia_array_header(arr)->length++] = (value))

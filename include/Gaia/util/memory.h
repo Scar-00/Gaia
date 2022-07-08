@@ -5,8 +5,10 @@
 #include <Gaia/gaia.h>
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 GAIA_API int gaia_arena_init();
+GAIA_API void gaia_arena_set_debug(bool state);
 GAIA_API void gaia_arena_memory_free(void *_block, const char *file, int line);
 GAIA_API void *gaia_arena_memory_alloc(size_t _size, const char *file, int line);
 GAIA_API void gaia_arena_print();

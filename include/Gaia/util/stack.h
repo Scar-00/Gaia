@@ -12,7 +12,7 @@ typedef struct GaiaStackHeader {
 #define gaia_stack_length(stack) (gaia_stack_header(stack)->length)
 #define gaia_stack_capacity(stack) (gaia_stack_header(stack)->capacity)
 
-#define gaia_stack(type) (type *)
+#define gaia_stack(type) type *
 #define gaia_stack_create(type, size) gaia_stack_int_create(size, sizeof(type))
 #define gaia_stack_destroy(stack) (free(gaia_stack_header(stack), stack = NULL))
 #define gaia_stack_free gaia_stack_destroy

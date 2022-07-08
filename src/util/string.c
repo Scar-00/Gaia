@@ -1,4 +1,5 @@
 #include <Gaia/gaia.h>
+#include <Gaia/util/array.h>
 #include <assert.h>
 
 GAIA_API String gaia_string_init(const char *format, ...) {
@@ -40,7 +41,7 @@ GAIA_API void gaia_string_char_append(String *string, char c) {
 }
 
 GAIA_API void gaia_string_append(String *dest, String *src) {
-    size_t size_new = dest->length + src->length; 
+    size_t size_new = dest->length + src->length;
     assert(size_new <= 64 && "cannot append 'String' to max size 'String'");
     strcat_s(dest->c_str, size_new, src->c_str);
     dest->length = size_new;
@@ -99,7 +100,7 @@ GAIA_API void gaia_stringstream_append(StringStream *dest, StringStream *src) {
 
 
 GAIA_API String gaia_stringstream_to_string(StringStream stream) {
-    assert(stream.length <= 64 && "cannot convert 'StringStream' to 'String' that is longer then 64 characters");
+    assert(stream.length <= 64 && "cannot convert 'StringStream' to 'String' if longer then 64 characters");
     return gaia_string_init(stream.c_str);
 }
 
