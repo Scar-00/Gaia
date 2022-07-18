@@ -47,6 +47,27 @@ GAIA_API void gaia_string_append(String *dest, String *src) {
     dest->length = size_new;
 }
 
+GAIA_API String gaia_string_split_at(String str, char c) {
+    for(u32 i = 0; i < str.length; i++) {
+        if(str.c_str[i] == c) {
+            return gaia_string_init(str.c_str + (i + 1));
+        }
+    }
+    return gaia_string_init("");
+}
+
+GAIA_API bool gaia_string_contains(String str, char c) {
+    for(u32 i = 0; i < str.length; i++) {
+        if(str.c_str[i] == c) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+//==========================================//
+//              Stringstream                //
+//==========================================//
 GAIA_API StringStream gaia_stringstream_init(const char *format, ...) {
     va_list args;
     va_start(args, format);
@@ -84,6 +105,7 @@ GAIA_API u32 gaia_stringstream_cmp(const StringStream stream0, const StringStrea
     return 1;
 }
 
+//FIXME: see below
 GAIA_API void gaia_stringstream_char_append(StringStream *stream, char c) {
     assert(0 && "FIXME");
     stream->c_str = realloc(stream->c_str, stream->length + 1);
@@ -92,15 +114,35 @@ GAIA_API void gaia_stringstream_char_append(StringStream *stream, char c) {
 }
 
 GAIA_API void gaia_stringstream_append(StringStream *dest, StringStream *src) {
-    assert(0 && "Not implemented");
+    assert(0 && "FIXME");
+    size_t size_new = dest->length + src->length;
+    strcat_s(dest->c_str, size_new, src->c_str);
+    dest->length = size_new;
+}
+
+GAIA_API StringStream gaia_stringstream_split_at(StringStream stream, char c) {
+    for(u32 i = 0; i < stream.length; i++) {
+        if(stream.c_str[i] == c) {
+            return gaia_stringstream_init(stream.c_str + (i + 1));
+        }
+    }
+    return gaia_stringstream_init("");
+}
+
+GAIA_API bool gaia_stringstream_contains(StringStream stream, char c) {
+    for(u32 i = 0; i < stream.length; i++) {
+        if(stream.c_str[i] == c) {
+            return 1;
+        }
+    }
+    return 0;  
 }
 
 
 
-
-
+//TODO: change this to be a initializer of string/stringstream
 GAIA_API String gaia_stringstream_to_string(StringStream stream) {
-    assert(stream.length <= 64 && "cannot convert 'StringStream' to 'String' if longer then 64 characters");
+    assert(stream.length <= 64 && "cannot convert 'StringStream' to 'String' if it is longer then 64 characters");
     return gaia_string_init(stream.c_str);
 }
 

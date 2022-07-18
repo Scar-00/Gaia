@@ -3,5 +3,16 @@
     "files.associations": {
         "windows.h": "c",
         "tchar.h": "c"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "variable.parameter",
+                "settings": {
+                    // "foreground": "#FF0000"
+                }
+            }
+        ],
+        "types": "#56b6c2"
     }
 }

@@ -1,6 +1,7 @@
 #include <Gaia/gaia.h>
 #include <io.h>
 
+//FIXME: rename to gaia_file_open
 GAIA_API GaiaFile gaia_file_read(const char *path, const char *mode) {
     GaiaFile file = {.path = path, .mode = mode};
     fopen_s(&file.file, file.path, file.mode);

@@ -3,10 +3,19 @@ make.exe: Entering directory `c:/dev/gaia'
 clang -o src/io/file.o -c src/io/file.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
 clang -o src/io/parse.o -c src/io/parse.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
 clang -o src/io/save.o -c src/io/save.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+ 
+clang -o src/util/ast.o -c src/util/ast.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+ 
 clang -o src/util/data.o -c src/util/data.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+ 
+clang -o src/util/iter.o -c src/util/iter.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+clang -o src/util/lexer.o -c src/util/lexer.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+ 
 clang -o src/util/memory.o -c src/util/memory.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+ 
 clang -o src/util/string.o -c src/util/string.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
 clang -o src/window/window.o -c src/window/window.c -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
-ar -rcs libgaia.a src/io/file.o src/io/parse.o src/io/save.o src/util/data.o src/util/memory.o src/util/string.o src/window/window.o 
+ar -rcs libgaia.a src/io/file.o src/io/parse.o src/io/save.o src/util/ast.o src/util/data.o src/util/iter.o src/util/lexer.o src/util/memory.o src/util/string.o src/window/window.o 
+ 
 make.exe: Leaving directory `c:/dev/gaia'
  

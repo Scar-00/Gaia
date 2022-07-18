@@ -46,14 +46,53 @@ inline GaiaEntry gaia_entry_init(String name, String value);
 inline void gaia_save_file_entry_add(GaiaEntry entry);
 GaiaEntry *gaia_save_file_entry_get(String name);
 
-typedef enum TOMLTypes{
-    TOML_VALUE,
-    TOML_STRING,
-    TOML_INT,
-    TOML_FLOAT,
-    TOML_BOOL,
-}TOMLTypes;
+typedef enum GaiaToken {
+    TOKEN_ID,
+    TOKEN_BRACE_LEFT,
+    TOKEN_BRACE_RIGHT,
+    TOKEN_ANGLE_LEFT,
+    TOKEN_ANGLE_RIGHT,
+    TOKEN_COMMA,
+    TOKEN_EQUALS,
+    TOKEN_STRING,
+    TOKEN_INT,
+    TOKEN_EOF,
+}GaiaToken;
 
+typedef struct GaiaLexer {
+    GaiaFile src;
+    char curr;
+    u64 pos;
+}GaiaLexer;
 
+GaiaLexer gaia_lexer_init(GaiaFile file);
+void gaia_lexer_advance(GaiaLexer *self);
+
+typedef enum GaiaType{
+    AST_ROOT,
+    AST_FIELD,
+    AST_TABLE, 
+    AST_SUFFIX, //-> [name] [type, ..., ...]
+}GaiaType;
+
+typedef struct GaiaAST {
+    GaiaType type;
+    String name;
+    String value;
+    gaia_array(struct GaiaAST) nodes;
+}GaiaAST;
+
+GaiaAST gaia_ast_create(GaiaType type);
+
+typedef struct GaiaPair {
+    String key;
+    String value;
+}GaiaPair;
+
+typedef struct GaiaTable {
+    String name;
+    gaia_array(GaiaPair) suffixes;
+    gaia_array(GaiaPair) fields;
+}GaiaTable;
 
 #endif
