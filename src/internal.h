@@ -84,15 +84,4 @@ typedef struct GaiaAST {
 
 GaiaAST gaia_ast_create(GaiaType type);
 
-typedef struct GaiaPair {
-    String key;
-    String value;
-}GaiaPair;
-
-typedef struct GaiaTable {
-    String name;
-    gaia_array(GaiaPair) suffixes;
-    gaia_array(GaiaPair) fields;
-}GaiaTable;
-
 #endif

@@ -39,3 +39,16 @@ GAIA_API void gaia_file_close(GaiaFile *file) {
         fprintf(stderr, "Could not close file: %s\n", file->path);
     }
 }
+
+GAIA_API void gaia_file_reopen(GaiaFile *file, const char *mode) {
+    const char *mode_old = file->mode;
+    if(mode) {
+        file->mode = mode;
+    }
+
+    if(fclose(file->file)) {
+        fprintf(stderr, "Could not close file: %s\n", file->path);
+    }
+
+    fopen_s(&file->file, file->path, file->mode);
+}

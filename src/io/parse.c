@@ -183,34 +183,78 @@ GAIA_API String gaia_conf_file_get_entry(GaiaConfFile_t *file, const char *entry
 
     GaiaEntryRequest requested_entry = gaia_conf_file_parse_request(request_full);
     for(u32 i = 0; i < gaia_array_length(file->tables); i++) {
-        if(gaia_string_cmp(requested_entry.table_name, file->tables[i].name))
+        if(gaia_string_cmp(requested_entry.table_name, file->tables[i].name)) {
             switch (requested_entry.type) {
             case REQ_FIELD:
                 for(u32 j = 0; j < gaia_array_length(file->tables[i].fields); j++) {
                     if(gaia_string_cmp(requested_entry.requested_entry, file->tables[i].fields[j].key)) {
                         return file->tables[i].fields[j].value;
                     }
-                    fprintf(stderr, "[%s] has no field %s\n", requested_entry.table_name.c_str, requested_entry.requested_entry.c_str);
-                    exit(1);
                 }
+                fprintf(stderr, "[%s] has no field %s\n", requested_entry.table_name.c_str, requested_entry.requested_entry.c_str);
+                exit(1);
             break;
             case REQ_SUFFIX:
                 for(u32 j = 0; j < gaia_array_length(file->tables[i].suffixes); j++) {
                     if(gaia_string_cmp(requested_entry.requested_entry, file->tables[i].suffixes[j].key)) {
                         return file->tables[i].suffixes[j].value;
                     }
-                    fprintf(stderr, "[%s] has no specifier %s\n", requested_entry.table_name.c_str, requested_entry.requested_entry.c_str);
-                    exit(1);
                 }
+                fprintf(stderr, "[%s] has no specifier %s\n", requested_entry.table_name.c_str, requested_entry.requested_entry.c_str);
+                exit(1);
             break;
+            }
         }
     }
     fprintf(stderr, "%s is not a valid request\n", requested_entry.requested_entry.c_str);
     exit(1);
 }
 
-GAIA_API bool gaia_conf_file_has_entry(GaiaConfFile file, const char *entry, ...) {
-    
+GAIA_API GaiaTable gaia_conf_file_get_table(GaiaConfFile_t *file, const char *table_name) {
+    gaia_array_foreach(file->tables, table) {
+        if(gaia_string_cmp(table->name, gaia_string_init(table_name))) {
+            return *table;
+        }
+    }
+    fprintf(stderr, "%s does not exist\n", table_name);
+    exit(1);
+}
+
+GAIA_API gaia_array(GaiaTable) gaia_conf_file_get_table_all(GaiaConfFile_t *file) {
+    return file->tables;
+}
+
+GAIA_API bool gaia_conf_file_has_entry(GaiaConfFile_t *file, const char *entry, ...) {
+    va_list args;
+    va_start(args, entry);
+    String request_full = gaia_string_init_va(entry, args);
+    va_end(args);
+
+    GaiaEntryRequest requested_entry = gaia_conf_file_parse_request(request_full);
+
+    gaia_array_foreach(file->tables, table) {
+        if(gaia_string_cmp(requested_entry.table_name, file->tables[i].name)) {
+            switch(requested_entry.type) {
+            case REQ_FIELD: {
+                gaia_array_foreach(table->fields, field) {
+                    if(gaia_string_cmp(requested_entry.requested_entry, field->key)) {
+                        return 1;
+                    }
+                }
+                return 0;
+            }
+            case REQ_SUFFIX: {
+                gaia_array_foreach(table->suffixes, suffix) {
+                    if(gaia_string_cmp(requested_entry.requested_entry, suffix->key)) {
+                        return 1;
+                    }
+                }
+                return 0;
+            }
+            }
+        }
+    }
+    return 0;
 }
 
 GaiaEntryRequest gaia_conf_file_parse_request(String request) {

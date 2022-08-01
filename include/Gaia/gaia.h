@@ -21,7 +21,6 @@ extern "C" {
 #include "util/memory.h"
 #include "util/array.h"
 #include "util/stack.h"
-#include "util/iter.h"
 
 #include "io/io.h"
 #include "io/parse.h"

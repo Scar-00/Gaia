@@ -21,11 +21,10 @@ typedef struct GaiaArrayHeader {
 #define gaia_array_pushback(arr, value) ((arr) = gaia_array_maygrow(arr, sizeof(*arr)), (arr)[gaia_array_header(arr)->length++] = (value))
 #define gaia_array_pop(arr) (gaia_array_length(arr)--, (arr)[gaia_array_header(arr)->length])
 #define gaia_array_put(arr, index, value) ((arr) = gaia_array_maygrow(arr, sizeof(*arr)), (arr)[index] = (value))
-//FIXME: maybe loop over the capacity of the array instead of the current length <- lenght may not cover the whole array
-#define gaia_array_loop(arr, iter) for(size_t iter = 0; iter < gaia_array_capacity(arr); iter++)
+#define gaia_array_loop(arr, iter) for(size_t iter = 0; iter < gaia_array_length(arr); iter++)
 #define gaia_array_foreach(arr, item)\
     __typeof__((*arr)) *item;\
-    for(size_t i = 0; i < gaia_array_capacity(arr) && (item = &arr[i]) != (void *)__INT64_MAX__; i++)
+    for(size_t i = 0; i < gaia_array_length(arr) && (item = &arr[i]) != (void *)__INT64_MAX__; i++)
 
 GAIA_API void *gaia_array_int_create(u32 capacity, size_t elem_size);
 GAIA_API void *gaia_array_maygrow(void *arr, size_t elem_size);

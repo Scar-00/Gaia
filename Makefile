@@ -8,7 +8,7 @@ SRC = $(wildcard src/**/**/*.c) $(wildcard src/**/*.c) $(wildcard src/*.c) #$(wi
 OBJ = $(SRC:.c=.o)
 
 static: $(OBJ)
-	$(AR) libgaia.a $^ $(LDFLAGS)
+	$(AR) libgaia.lib $^ $(LDFLAGS)
 
 dynamic: $(OBJ)
 	$(CC) -shared -o libgaia.dll $^ $(LDFLAGS)

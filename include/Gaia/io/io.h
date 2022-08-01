@@ -15,6 +15,7 @@ typedef struct GaiaFile {
 GAIA_API GaiaFile gaia_file_read(const char *path, const char *mode);
 GAIA_API void gaia_file_close(GaiaFile *file);
 GAIA_API u32 gaia_file_check(const char *path, u32 mode);
+GAIA_API void gaia_file_reopen(GaiaFile *file, const char *mode);
 
 // care slow operation
 GAIA_API void gaia_setting_file_set(const char *path);
