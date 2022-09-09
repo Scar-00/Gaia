@@ -5,9 +5,9 @@
 extern "C" {
 #endif
 
-#if defined(DLL_BUILD)
+#if defined(DLL_BUILD) && defined(_WIN32)
     #define GAIA_API __declspec(dllexport)
-#elif defined(DLL_USE)
+#elif defined(DLL_USE) && defined(_WIN32)
     #define GAIA_API __declspec(dllimport)
 #else
     #define GAIA_API

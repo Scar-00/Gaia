@@ -59,17 +59,17 @@ GAIA_API GaiaConfFile_t *gaia_conf_file_parse(GaiaFile file) {
         case TOKEN_STRING:
         case TOKEN_ID: {
             String value = tokens[i].value;
-            i++;
-            if(tokens[i].type == TOKEN_EQUALS) {
+            if(tokens[i + 1].type == TOKEN_EQUALS) {
+                i++;
                 GaiaAST ast = gaia_ast_create(AST_FIELD);
                 ast.name = value;
                 i++;
                 ast.value = tokens[i].value;
                 gaia_array_pushback(root.nodes, ast);
-            }else {
-                // gaia_panic("[%s] needs to have a value after '='\n", value.c_str);
-                printf("[%s] needs to have a value after '='\n", value.c_str);
-                exit(1);
+            }else if(tokens[i].type == TOKEN_ID || tokens[i].type == TOKEN_STRING) {
+                GaiaAST ast = gaia_ast_create(AST_FIELD);
+                ast.value = tokens[i].value;
+                gaia_array_pushback(root.nodes, ast);
             }
         }
         break;

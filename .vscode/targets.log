@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i386-pc-mingw32
  
 
-# Make data base, printed on Mon Aug 01 16:10:39 2022
+# Make data base, printed on Fri Sep 02 19:11:01 2022
 
 # Variables
 
@@ -16,6 +16,10 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# environment
+WSLENV = WT_SESSION::WT_PROFILE_ID
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # makefile (from `makefile', line 8)
 OBJ = $(SRC:.c=.o)
 # makefile (from `makefile', line 7)
@@ -25,14 +29,14 @@ MAKEFLAGS = Rrqp
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
-@D = $(patsubst %/,%,$(dir $@))
+@D = $(patsubst %/,%,$ 
+(dir $@))
 # environment
 HOMEDRIVE = C:
 # automatic
 @F = $(notdir $@)
 # automatic
-^D = $(patsub 
-st %/,%,$(dir $^))
+^D = $(patsubst %/,%,$(dir $^))
 # makefile
 CURDIR := c:/dev/gaia
 # default
@@ -42,7 +46,7 @@ WINDIR = C:\WINDOWS
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # makefile (from `makefile', line 4)
-CFLAGS = -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude 
+CFLAGS = -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
 # environment
 ONEDRIVE = C:\Users\fiffi\OneDrive
 # environment
@@ -52,17 +56,15 @@ PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # makefile (from `makefile', line 1)
 MAKEFILE_LIST :=  makefile
 # environment
-FPS_BROWSER_USER_PROFILE_STRING = Default
-# environment
 TMP = C:\Users\fiffi\AppData\Local\Temp
 # environment
 PROGRAMW6432 = C:\Program Files
 # environment
 PROGRAMDATA = C:\ProgramData
 # environment
-VSCODE_CWD = C:\WINDOWS\System32
+VSCODE_CWD = C:\dev\gaia
 # environment
-PATH = C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Users\fiffi\.jdks\openjdk-15.0.1\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files (x86)\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin;D:\node_js\;C:\Program Files\Neovim\/bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\fiffi\.cargo\bin;C:\Users\fiffi\AppData\Local\Microsoft\WindowsApps;C:\Users\fiffi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\fiffi\.jdks\openjdk-15.0.2\bin\java.exe;C:\MinGW\mingw64\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\CMake\bin;C:\Program Files\LLVM\bin;C:\Program Files\Neovim\bin;C:\dev\Scripts;C:\Program Files\NASM;C:\Users\fiffi\.dotnet\tools;F:\qemu;\\wsl$\Ubuntu-20.04\usr\local\i386elfgcc\bin;C:\Users\fiffi\AppData\Roaming\npm;C:\dev\bin;C:\Users\fiffi\.dotnet\tools;C:\Users\fiffi\.cargo\bin;
+PATH = C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Users\fiffi\.jdks\openjdk-15.0.1\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files (x86)\mingw-w64\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin;D:\node_js\;C:\Program Files\Neovim\/bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\fiffi\.cargo\bin;C:\Users\fiffi\AppData\Local\Microsoft\WindowsApps;C:\Users\fiffi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\fiffi\.jdks\openjdk-15.0.2\bin\java.exe;C:\MinGW\mingw64\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\CMake\bin;C:\Program Files\LLVM\bin;C:\Program Files\Neovim\bin;C:\dev\Scripts;C:\Program Files\NASM;C:\Users\fiffi\.dotnet\tools;F:\qemu;\\wsl$\Ubuntu-20.04\usr\local\i386elfgcc\bin;C:\Users\fiffi\AppData\Roaming\npm;C:\dev\bin;C:\Users\fiffi\.dotnet\tools;C:\Users\fiffi\.cargo\bin;C:\Users\fiffi\AppData\Local\JetBrains\Toolbox\scripts
 # environment
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # environment
@@ -80,12 +82,11 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `makefile', line 5)
 LDFLAGS = 
 # default
-.FEATURES := target-specific order-only second-expansion else- 
-if archives
+.FEATURES := target-specific order-only second-expansion else-if archives
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_7632_YYXIUGPGHBOMFDWC
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15976_AKMUQADHLQRKBTKK
 # environment
 COMPUTERNAME = DESKTOP-QETELMG
 # environment
@@ -97,6 +98,8 @@ DRIVERDATA = C:\Windows\System32\Drivers\DriverData
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
+WT_SESSION = 1765e45e-214b-4fbf-907e-c19f7db52419
+# environment
 USERNAME = fiffi
 # environment
 PUBLIC = C:\Users\Public
@@ -105,9 +108,11 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 GOOGLE_DEFAULT_CLIENT_ID = no
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\fiffi\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CLI = 1
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+VSCODE_CODE_CACHE_PATH = C:\Users\fiffi\AppData\Roaming\Code\CachedData\e4503b30fc78200f846c62cf8091b76ff5547662
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
 # environment
@@ -117,8 +122,7 @@ ONEDRIVECONSUMER = C:\Users\fiffi\OneDrive
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
-USERDOMAIN = DESKTOP-Q 
-ETELMG
+USERDOMAIN = DESKTOP-QETELMG
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -154,12 +158,11 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 1 Stepping 1, AuthenticAMD
 # environment
 OS = Windows_NT
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\dc10a6b75e7d5a70afb7787613ac0858-1.69.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\dc10a6b75e7d5a70afb7787613ac0858-1.70.2-main-sock
 # environment
 HOMEPATH = \Users\fiffi
 # environment
-COMMONPRO 
-GRAMFILES(X86) = C:\Program Files (x86)\Common Files
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
 # environment
 PROMPT = $P$G
 # environment
@@ -177,6 +180,8 @@ APPDATA = C:\Users\fiffi\AppData\Roaming
 # environment
 TEMP = C:\Users\fiffi\AppData\Local\Temp
 # environment
+WT_PROFILE_ID = {0caa0dad-35be-5f56-a8ff-afceeeaa6101}
+# environment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # default
 MAKEFILES := 
@@ -184,15 +189,12 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# aut 
-omatic
+# automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
 # environment
 SYSTEMDRIVE = C:
-# environment
-SESSIONNAME = Console
 # environment
 PROCESSOR_REVISION = 0101
 # environment
@@ -202,13 +204,12 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 23
 # environment
-FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+VSCODE_PID = 15976
 # environment
-VSCODE_PID = 7632
-# environment
-USERDOMAIN_ROAMINGPROFILE = DESKTOP-QETELMG
+USERDOMAIN_ROAMI 
+NGPROFILE = DESKTOP-QETELMG
 # variable set hash-table stats:
-# Load=95/1024=9%, Rehash=0, Collisions=12/120=10%
+# Load=97/1024=9%, Rehash=0, Collisions=12/122=10%
 
 # Pattern-specific Variable Values
 
@@ -216,48 +217,63 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-QETELMG
 
 # Directories
 
-# src/util/data.c (key c:/dev/gaia/src/util/data.c, mtime 1656065020): could not be opened.
+# src/io/file.o (key c:/dev/gaia/src/io/file.o, mtime 1662138637): could not be opened.
+# src/util/lexer.o (key c:/dev/gaia/src/util/lexer.o, mtime 1662138638): could not be opened.
 # C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1603067745): 34 files, no impossibilities.
-# C:\WINDOWS\System32\Wbem (key C:/WINDOWS/System32/Wbem, mtime 1657990144): 173 files, no impossibilities.
-# . (key c:/dev/gaia, mtime 1658355789): 12 files, no impossibilities.
-# src/io/save.c (key c:/dev/gaia/sr 
-c/io/save.c, mtime 1651874224): could not be opened.
+# C:\WINDOWS\System32\Wbem (key C:/WINDOWS/System32/Wbem, mtime 1660666439): 173 files, no impossibilities.
+# . (key c:/dev/gaia, mtime 1662138643): 15 files, no impossibilities.
+# src/window/window.o (key c:/dev/gaia/src/window/window.o, mtime 1662138642): could not be opened.
+# src/io/save.c (key c:/dev/gaia/src/io/save.c, mtime 1651874224): could not be opened.
 # C:\Program Files\Git\mingw64\bin (key C:/Program Files/Git/mingw64/bin, mtime 1607125361): 107 files, no impossibilities.
 # C:\Program Files\dotnet\ (key C:/Program Files/dotnet/, mtime 1655465581): 11 files, no impossibilities.
+# src/io/parse.o (key c:/dev/gaia/src/io/parse.o, mtime 1662138637): could not be opened.
 # C:\Users\fiffi\.jdks\openjdk-15.0.1\bin (key C:/Users/fiffi/.jdks/openjdk-15.0.1/bin, mtime 1603281544): 124 files, no impossibilities.
+# src/util/data.c (key c:/dev/gaia/src/util/data.c, mtime 1656065020): could not be opened.
+# src/util/memory.o (key c:/dev/gaia/src/util/memory.o, mtime 1662138639): could not be opened.
+# src/io/file.o.json (key c:/dev/gaia/src/io/file.o.json, mtime 1662138637): could not be opened.
+# src/util/lexer.o.json (key c:/dev/gaia/src/util/lexer.o.json, mtime 1662138638): could not be opened.
 # src/io/file.c (key c:/dev/gaia/src/io/file.c, mtime 1658775597): could not be opened.
-#  
-src/util/lexer.c (key c:/dev/gaia/src/util/lexer.c, mtime 1657497252): could not be opened.
-# C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
+# src/io/save.o (key c:/dev/gaia/src/io/save.o, mtime 1662138638): could not be opened.
+# src/util/string.o (key c:/dev/gaia/src/util/string.o, mtime 1662138639): could not be opened.
+# C:\WINDOWS\System32\OpenSSH 
+\: could not be stat'd.
+# src/io/save.o.json (key c:/dev/gaia/src/io/save.o.json, mtime 1662138638): could not be opened.
 # C:\Program Files (x86)\Common Files\Oracle\Java\javapath (key C:/Program Files (x86)/Common Files/Oracle/Java/javapath, mtime 1624893219): 5 files, no impossibilities.
 # C:\Program Files\Python310\: could not be stat'd.
-# C:\WINDOWS (key C:/WINDOWS, mtime 1657990141): 134 files, no impossibilities.
+# C:\WINDOWS (key C:/WINDOWS, mtime 1660666436): 134 files, no impossibilities.
 # C:\Program Files\Python310\Scripts\: could not be stat'd.
+# src/util/ast.o (key c:/dev/gaia/src/util/ast.o, mtime 1662138638): could not be opened.
 # C:\Program Files\Git\usr\bin (key C:/Program Files/Git/usr/bin, mtime 1607125360): 315 files, no impossibilities so far.
 # src/internal.h (key c:/dev/gaia/src/internal.h, mtime 1658247132): could not be opened.
-# src/io/parse.c (key c:/dev/gaia/src/io/parse.c, mtime 1658781806): could not be opened.
-# src/window (key c:/dev/gaia/src/window, mtime 1658355789): 3 files, no impossibilities.
+# src/io/parse.o.json (key c:/dev/gaia/src/io/parse.o.json, mtime 1662138637): could not be opened.
+# src/util/memory.o.json (key c:/dev/gaia/src/util/memory.o.json, mtime 1662138639): could not be opened.
+# src/util/data.o (key c:/dev/gaia/src/util/data.o, mtime 1662138638): could not be opened.
+# src/io/parse.c (key c:/dev/gaia/src/io/parse.c, mtime 1660142999): could not be opened.
+# src/window (key c:/dev/gaia/src/window, mtime 1662138642): 5 files, no impossibilities.
+# src/util/lexer.c (key c:/dev/gaia/src/util/lexer.c, mtime 1657497252): could not be opened.
 # src/util/memory.c (key c:/dev/gaia/src/util/memory.c, mtime 1656064865): could not be opened.
-# src (key c:/dev/gaia/src,  
-mtime 1649598205): 6 files, no impossibilities.
-# src/io (key c:/dev/gaia/src/io, mtime 1658355789): 5 files, no impossibilities.
+# src (key c:/dev/gaia/src, mtime 1649598205): 6 files, no impossibilities.
+# src/util/string.o.json (key c:/dev/gaia/src/util/string.o.json, mtime 1662138639): could not be opened.
+# src/io (key c:/dev/gaia/src/io, mtime 1662138638): 11 files, no impossibilities.
 # C:\Program Files\Git\cmd (key C:/Program Files/Git/cmd, mtime 1607125361): 8 files, no impossibilities.
-# C:\WINDOWS\system32 (key C:/WINDOWS/system32, mtime 1659133205): 3195 files, no impossibilities.
+# C:\WINDOWS\system32 (key C:/WINDOWS/system32, mtime 1661595309): 3195 files, no impossibilities.
 # src/util/string.c (key c:/dev/gaia/src/util/string.c, mtime 1658401951): could not be opened.
-# src/window/window.c (key c:/dev/gaia/src/window/window.c, mtime 1649544610): co 
-uld not be opened.
+# src/window/window.o.json (key c:/dev/gaia/src/window/window.o.json, mtime 1662138642): could not be opened.
+# src/util/ast.o.json (key c:/dev/gaia/src/util/ast.o.json, mtime 1662138638): could not be opened.
+# src/window/window.c (key c:/dev/gaia/src/window/window.c, mtime 1649544610): could not be opened.
 # src/util/ast.c (key c:/dev/gaia/src/util/ast.c, mtime 1658355665): could not be opened.
-# src/util (key c:/dev/gaia/src/util, mtime 1658355789): 7 files, no impossibilities.
+# src/util (key c:/dev/gaia/src/util, mtime 1662138639): 17 files, no impossibilities.
+# src/util/data.o.json (key c:/dev/gaia/src/util/dat 
+a.o.json, mtime 1662138638): could not be opened.
 # C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (key C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, mtime 1543101946): 5 files, no impossibilities.
 
-# 4144 files, no impossibilities in 29 directories.
+# 4165 files, no impossibilities in 47 directories.
 
 # Implicit Rules
 
 %.o: %.c
 #  commands to execute (from `makefile', line 17):
-	$(CC) -o $@ -c $< $(CFLAGS 
-)
+	$(CC) -o $@ -c $< -MJ $@.json $(CFLAGS)
 	
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -305,12 +321,12 @@ src/io/save.o:
 
 # Not a target:
 makefile:
-#  Implicit rule search 
- has been done.
-#  Last modified 2022-07-19 16:04:21
+#  Implicit rule search has been done.
+#  Last modified 2022-09-02 19:10:24
 #  File has been updated.
 #  Successfully updated.
-# variable set hash-table stats:
+# variable set hash-table sta 
+ts:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -341,14 +357,14 @@ static: src/io/file.o src/io/parse.o src/io/save.o src/util/ast.o src/util/data.
 
 # Not a target:
 src/util/lexer.o:
-#  Implicit rule search h 
-as not been done.
+#  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 .SUFFIXES:
-#  Implicit rule search has not been done.
+#  Implicit rule sear 
+ch has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -375,21 +391,21 @@ clean:
 	
 
 # files hash-table stats:
-# Load=16/1024=2%, Rehash=0, Collisio 
-make.exe: *** No rule to make target `all'.  Stop.
-
-ns=0/45=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/45=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 1
+# # of strings in strcache 
+make.exe: *** No rule to make target `all'.  Stop.
+
+: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Aug 01 16:10:39 2022
+# Finished Make data base on Fri Sep 02 19:11:01 2022
 
  

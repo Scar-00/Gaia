@@ -1,24 +1,6 @@
 [
-    {
-        "arguments": [
-            "clang",
-            "-c",
-            "-std=c11",
-            "-O3",
-            "-g",
-            "-Wall",
-            "-Wextra",
-            "-Wpedantic",
-            "-Wstrict-aliasing",
-            "-Wno-newline-eof",
-            "-Wno-unused-parameter",
-            "-Wno-gnu-compound-literal-initializer",
-            "-Wno-gnu-zero-variadic-macro-arguments",
-            "-Wno-deprecated-declarations",
-            "-Wno-gnu-statement-expression",
-            "-Iinclude"
-        ],
-        "directory": "C:/Users/fiffi/OneDrive/Desktop/Coding/engine",
-        "file": "src/main.c"
-    }
+    { "directory": "C:\\dev\\gaia", "file": "src/io/file.c", "output": "src/io/file.o", "arguments": ["C:\\Program Files\\LLVM\\bin\\clang.exe", "-xc", "src/io/file.c", "-o", "src/io/file.o", "-c", "-std=c11", "-O3", "-g", "-Wall", "-Wextra", "-Wpedantic", "-Wstrict-aliasing", "-Wno-newline-eof", "-Wno-deprecated-declarations", "-D", "DLL_BUILD", "-I", "include", "--target=x86_64-pc-windows-msvc19.32.31332"]},
+    { "directory": "C:\\dev\\gaia", "file": "src/io/parse.c", "output": "src/io/parse.o", "arguments": ["C:\\Program Files\\LLVM\\bin\\clang.exe", "-xc", "src/io/parse.c", "-o", "src/io/parse.o", "-c", "-std=c11", "-O3", "-g", "-Wall", "-Wextra", "-Wpedantic", "-Wstrict-aliasing", "-Wno-newline-eof", "-Wno-deprecated-declarations", "-D", "DLL_BUILD", "-I", "include", "--target=x86_64-pc-windows-msvc19.32.31332"]},
+    { "directory": "C:\\dev\\gaia", "file": "src/io/save.c", "output": "src/io/save.o", "arguments": ["C:\\Program Files\\LLVM\\bin\\clang.exe", "-xc", "src/io/save.c", "-o", "src/io/save.o", "-c", "-std=c11", "-O3", "-g", "-Wall", "-Wextra", "-Wpedantic", "-Wstrict-aliasing", "-Wno-newline-eof", "-Wno-deprecated-declarations", "-D", "DLL_BUILD", "-I", "include", "--target=x86_64-pc-windows-msvc19.32.31332"]},
+    { "directory": "C:\\dev\\gaia", "file": "src/window/window.c", "output": "src/window/window.o", "arguments": ["C:\\Program Files\\LLVM\\bin\\clang.exe", "-xc", "src/window/window.c", "-o", "src/window/window.o", "-c", "-std=c11", "-O3", "-g", "-Wall", "-Wextra", "-Wpedantic", "-Wstrict-aliasing", "-Wno-newline-eof", "-Wno-deprecated-declarations", "-D", "DLL_BUILD", "-I", "include", "--target=x86_64-pc-windows-msvc19.32.31332"]}
 ]
