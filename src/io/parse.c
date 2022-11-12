@@ -233,7 +233,7 @@ GAIA_API bool gaia_conf_file_has_entry(GaiaConfFile_t *file, const char *entry, 
     GaiaEntryRequest requested_entry = gaia_conf_file_parse_request(request_full);
 
     gaia_array_foreach(file->tables, table) {
-        if(gaia_string_cmp(requested_entry.table_name, file->tables[i].name)) {
+        if(gaia_string_cmp(requested_entry.table_name, table->name)) {
             switch(requested_entry.type) {
             case REQ_FIELD: {
                 gaia_array_foreach(table->fields, field) {

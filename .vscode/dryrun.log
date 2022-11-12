@@ -7,11 +7,13 @@ clang -o src/io/parse.o -c src/io/parse.c -MJ src/io/parse.o.json -std=c11 -O3 -
 clang -o src/io/save.o -c src/io/save.c -MJ src/io/save.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
  
 clang -o src/util/ast.o -c src/util/ast.c -MJ src/util/ast.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
+ 
 clang -o src/util/data.o -c src/util/data.c -MJ src/util/data.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
+ 
 clang -o src/util/lexer.o -c src/util/lexer.c -MJ src/util/lexer.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
+ 
 clang -o src/util/memory.o -c src/util/memory.c -MJ src/util/memory.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
 clang -o src/util/string.o -c src/util/string.c -MJ src/util/string.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
- 
 clang -o src/window/window.o -c src/window/window.c -MJ src/window/window.o.json -std=c11 -O3 -g -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wno-newline-eof -Wno-deprecated-declarations -DDLL_BUILD -Iinclude
 clang -shared -o libgaia.dll src/io/file.o src/io/parse.o src/io/save.o src/util/ast.o src/util/data.o src/util/lexer.o src/util/memory.o src/util/string.o src/window/window.o 
 make.exe: Leaving directory `c:/dev/gaia'

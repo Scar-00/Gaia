@@ -1,13 +1,14 @@
 #ifndef _GAIA_STRING_H_
 #define _GAIA_STRING_H_
 
+#include "Gaia/util/string.h"
 #include <Gaia/gaia.h>
 
-
-#include <stdarg.h> 
+#include <stdarg.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> 
+#include <string.h>
 #include <stdbool.h>
 
 //string type for strings shorter then 64 characters
@@ -42,5 +43,19 @@ GAIA_API bool gaia_stringstream_contains(StringStream stream, char c);
 
 GAIA_API String gaia_stringstream_to_string(StringStream stream);
 GAIA_API StringStream gaia_string_to_stringstream(String string);
+
+/*
+typedef union GaiaString {
+    struct {
+        size_t length;
+        size_t capacity;
+        void *c_str;
+    };
+    struct {
+        size_t length;
+        char c_str[16];
+    };
+}GaiaString;
+*/
 
 #endif

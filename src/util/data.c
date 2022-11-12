@@ -1,4 +1,10 @@
 #include "../internal.h"
+#include "Gaia/gaia.h"
+#include "Gaia/util/array.h"
+#include "Gaia/util/iter.h"
+#include <stdlib.h>
+
+GaiaIter gaia_iter_init(void *begin, void *end, size_t data_size);
 
 //Array funktions
 GAIA_API void *gaia_array_int_create(u32 capacity, size_t elem_size) {
@@ -7,6 +13,7 @@ GAIA_API void *gaia_array_int_create(u32 capacity, size_t elem_size) {
     arr[0].length = 0;
     arr[0].capacity = capacity;
     arr++;
+    gaia_array_header(arr)->iter = gaia_iter_init(arr, (char*)arr + (capacity * elem_size), elem_size);
     return arr;
 }
 
@@ -15,9 +22,15 @@ GAIA_API void *gaia_array_maygrow(void *arr, size_t elem_size) {
         gaia_array_capacity(arr) = gaia_array_capacity(arr) * 2;
         GaiaArrayHeader *tmp = realloc(gaia_array_header(arr), (gaia_array_capacity(arr) * elem_size) + sizeof(GaiaArrayHeader));
         tmp++;
+        gaia_array_header(tmp)->iter = gaia_iter_init(tmp, (char*)tmp + (gaia_array_capacity(tmp) * elem_size), elem_size);
         return tmp;
     }
     return arr;
+}
+
+GAIA_API void gaia_array_int_free(void *arr) {
+    free(arr);
+    arr = NULL;
 }
 
 //stack funktions
@@ -38,4 +51,9 @@ GAIA_API void *gaia_stack_maygrow(void *arr, size_t elem_size) {
         return tmp;
     }
     return arr;
+}
+
+//iters
+GaiaIter gaia_iter_init(void *begin, void *end, size_t data_size) {
+    return (GaiaIter){.begin = begin, .end = end, .size = data_size};
 }
